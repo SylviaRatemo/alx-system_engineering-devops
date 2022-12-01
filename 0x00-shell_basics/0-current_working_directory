@@ -1,15 +1,2 @@
 #!/bin/bash
-cd - change working directory
-ls - list directory content
-pwd - print working directory
-less - display file content
-file - determine type of file
-ln - creates hard links
-cp - copy a file from a directory to another 
-mv - move a file or directory from a directory to another
-rm - delete a file
-mkdir - create a new directory
-type - displays contents of a text file
-which -identify location of executables
-help - get information about built-in shell commands
-man - display user manual
+pwd
