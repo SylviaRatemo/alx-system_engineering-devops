@@ -1,2 +1,2 @@
 #!/bin/bash
-mv -ap|grep ^[A-Z].*[^/] /tmp/u
+mv -a|grep ^[A-Z].*[^/] /tmp/u
