@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod 700 $(ls -p | greg /)
+chmod ugo=+x
