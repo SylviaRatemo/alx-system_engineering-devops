@@ -6,3 +6,4 @@ do
 	echo "Best School"
 	((i++))
 done
+export i
