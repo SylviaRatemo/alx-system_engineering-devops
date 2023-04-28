@@ -3,7 +3,7 @@
 f=/var/run/myscript.pid
 trap "echo 'I hate the kill command'" 15
 trap "echo 'YU no love me?!'" 2
-trap 'rm $f; exit' 3 | 15
+trap 'rm $f; exit' 15
 echo "$$" > "$f"
 while true; do
 	echo "To infinity and beyond"
