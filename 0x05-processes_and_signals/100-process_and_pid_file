@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 # terminate process without kill or killall command
-echo "$$" > /var/run/myscript.pid
-while true; do
-	echo "To infinity and beyond"
-done
+f=/var/run/myscript.pid
 trap "echo 'I hate the kill command'" 15
 trap "echo 'YU no love me?!'" 2
-trap 'rm /var/run/myscript.pid && kill -9 $(pgrep -f high)' 3 | 15
+trap 'rm $f; exit' 3 | 15
+echo "$$" > "$f"
+while true; do
+	echo "To infinity and beyond"
+	sleep 2
+done
