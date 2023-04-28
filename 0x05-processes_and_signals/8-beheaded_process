@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # terminate process without kill or killall command
-kill -9 '$(pgrep -f high)'
+kill -9 "$(pgrep -f high)"
