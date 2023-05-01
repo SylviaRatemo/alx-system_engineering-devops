@@ -2,7 +2,7 @@
 # 12h 59min
 h=0
 m=1
-while [ $h -ne 12 ]
+while [ $h -ne 13 ]
 do
 	echo "Hour: "$h
 	while [ $m -ne 60 ]
