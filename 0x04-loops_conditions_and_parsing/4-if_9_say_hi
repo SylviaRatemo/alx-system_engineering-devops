@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #until
 i=1
-until [ $i -gt 10 ]
+until [ $i -gt 9 ]
 do
 	echo "Best School"
-	if [ $i -eq 9 ]
+	if [ $i -eq 8 ]
 	then
 		echo "Hi"
 	fi
