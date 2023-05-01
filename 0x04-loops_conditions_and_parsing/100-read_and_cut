@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # filenames
 exec 3< /etc/passwd
-while read -u 3
+while read -u -r 3
 do
 	echo "$REPLY" | cut -d ':' -f1,3,6
 done
