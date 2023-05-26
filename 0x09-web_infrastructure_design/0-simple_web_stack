@@ -1,0 +1,14 @@
+https://yourimageshare.com/ib/ce9oEOZotk
+
+Questions.
+1. A server is a computer or system that provides resources, services, or functionality to other computers or devices,\
+known as clients, over a network. It is designed to handle and respond to requests from clients,\
+enabling them to access and utilize its resources or services.
+2. The domain name serves as a human-readable and memorable identifier for websites and other internet resources. 
+3. the "www" subdomain is usually represented by a DNS CNAME (Canonical Name) record or an A (Address) record.
+4. The web server plays a crucial role in delivering web content and facilitating communication between clients (web browsers)\
+and web applications.
+5. The role of an application server is to host, manage, and execute applications or software components
+6. The role of a database is to store, manage, and organize structured data in a manner that allows for efficient storage,\
+retrieval, and manipulation of information. 
+7. When a user requests a website, the server communicates with the user's computer using the HTTP (Hypertext Transfer Protocol) protocol.
