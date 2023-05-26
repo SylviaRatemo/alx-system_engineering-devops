@@ -1,6 +1,6 @@
 https://yourimageshare.com/ib/ce9oEOZotk
 
-Questions.
+Part A
 1. A server is a computer or system that provides resources, services, or functionality to other computers or devices,\
 known as clients, over a network. It is designed to handle and respond to requests from clients,\
 enabling them to access and utilize its resources or services.
@@ -12,3 +12,11 @@ and web applications.
 6. The role of a database is to store, manage, and organize structured data in a manner that allows for efficient storage,\
 retrieval, and manipulation of information. 
 7. When a user requests a website, the server communicates with the user's computer using the HTTP (Hypertext Transfer Protocol) protocol.
+
+Part B
+1. An issue with the network is that it has a Single Point of Failure (SPOF).
+It means for a component or part of a system that, if it fails, will cause the entire system to fail or significantly degrade its\
+performance. In other words, a single point of failure is a vulnerability that, when compromised, can disrupt the normal functioning\
+of a system.
+2. Also, downtime is unavoidable when maintenance needed (like deploying new code web server needs to be restarted)
+3. Finally, the network cannot scale if too much incoming traffic
