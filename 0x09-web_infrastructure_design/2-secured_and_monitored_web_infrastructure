@@ -1,0 +1,53 @@
+https://imgur.com/a/lflxUiQ
+
+Part A
+1. Firewalls are network security devices or software that act as a barrier between an internal network and external networks
+2. serving traffic over HTTPS is crucial for protecting the confidentiality, integrity, and authenticity of data transmitted between\
+clients and servers. It helps establish trust, comply with regulations, defend against evolving security threats, and safeguard sensitive \
+information exchanged over the internet.
+3. Monitoring in networking provides visibility into network performance, security, and operations. It enables proactive management,\
+timely issue detection, efficient troubleshooting, and optimization of network resources for enhanced reliability and performance.
+4. Monitoring collect data in various ways, such as:
+  i) SNMP
+  ii) Packet Capture and Analysis
+  iii) Agents and Probes deployed on devices or systems
+  iv) Log and Event Data
+  v) APIs and Integrations provided by applications or systems
+  vi) Synthetic Monitoring that generate artificial traffic
+  vii) Passive Monitoringusing tech like flow analysis, deep packet inspection, or traffic mirroring. 
+5. To monitor your web server's QPS (Queries Per Second), follow these steps:
+  i) Determine your monitoring requirements and the specific QPS metrics you want to track.
+  ii) Choose a suitable monitoring solution such as Prometheus, Datadog, or CloudWatch.
+  iii) Set up the monitoring infrastructure by installing and configuring monitoring agents or collectors on your web server.
+  iv) Instrument your web server to expose the required QPS metrics. This may involve enabling specific modules or adding custom logging.
+  v) Configure your monitoring solution to collect and analyze the QPS data from your web server.
+  vi) Set up alerts and notifications based on predefined thresholds to receive timely notifications when the QPS exceeds or falls below desired levels.
+  vii) Utilize the monitoring solution's dashboard and visualization features to monitor and analyze the QPS data in real-time or over time.
+  viii) Regularly review and analyze the QPS metrics to identify patterns, trends, or anomalies that may impact the performance of your web server.
+  ix) Take proactive actions based on the insights gained from monitoring, such as optimizing server resources, scaling infrastructure, or investigating performance bottlenecks.
+  x) Continuously refine and adjust your monitoring setup as your web server environment evolves or your monitoring needs change.
+
+Part B
+1. while terminating SSL at the load balancer can provide certain benefits such as improved load balancing and application routing,\
+it also brings considerations related to performance, security, and encryption management. Organizations must carefully evaluate their\
+requirements and security posture before deciding on the appropriate SSL termination approach.
+2. Having only one MySQL server capable of accepting writes can lead to various issues and limitations:
+  i) Single point of failure
+  ii) Scalability and performance limitations
+  iii) Data integrity and consistency concerns
+  iv) Limited fault tolerance
+  v) Inadequate load balancing
+  vi) Difficulty in maintenance and upgrades
+3. Having servers with all the same components, such as a database, web server, and application server, can present several challenges:
+  i) Lack of modularity makes it difficult to scale or upgrade individual components independently, leading to inefficiency and\
+  potential downtime for unrelated services.
+  ii) A single point of failure occurs when the server experiences a failure or goes offline, affecting all services and components\
+  simultaneously.
+  iii) Resource contentions arise as multiple resource-intensive components compete for CPU, memory, and disk I/O, resulting in\
+  performance bottlenecks and reduced system performance.
+  iv) Limited scalability is a consequence of the inability to scale individual components independently, hindering efficient\
+  resource allocation based on specific requirements.
+  v) Security risks increase when hosting multiple components on the same server, as a vulnerability in one component can compromise\
+  the security and integrity of others, potentially leading to widespread security risks and data breaches.
+  vi) Maintenance and troubleshooting become more complex due to the tight coupling of all components on a single server, impacting\
+  multiple services during upgrades or configuration changes and making problem isolation and diagnosis challenging.
