@@ -1,0 +1,24 @@
+We've included a load balancers which plays a crucial role in optimizing system performance, scalability, availability, and\
+resource utilization in distributed computing environments.
+
+Given the size of the network and the limited number of servers, the algorithm is selected to promote simplicity and fairness.\
+Therefore, the Round Robin is used since it evenly distributes requests across the available servers, ensuring\
+each server gets a fair share of the workload. Also, it's easy to implement and doesn't require complex monitoring or calculations.
+
+Active-Passive setup is used since it provides failover protection and better resource utilization when the passive server(s) are not\
+actively handling traffic.
+
+A Primary-Replica (Master-Slave) database cluster works as follows:
+1. The Primary database serves as the authoritative source for read and write operations.
+2. Replica databases (Slaves) are read-only copies of the Primary database.
+3. The Primary continuously logs changes in a replication log.
+4. Replicas periodically retrieve and apply these logs to synchronize their data with the Primary.
+5. Replicas serve for scaling read operations, fault tolerance, and data backups.
+6. Replication lag may occur due to delays in applying changes to replicas.
+7. In the event of Primary failure, a replica can be promoted to become the new Primary through failover.
+8. Failover ensures high availability and allows the failed Primary to rejoin the cluster as a replica.
+
+The primary node is responsible for handling read and write operations as the main point of contact for client requests while the Replica\
+nodes serve as copies of the primary node and are primarily used for backup, fault tolerance, and load balancing purposes.
+
+The network has security issues given there's no firewall and the HTTPS protocol is not being used. Also, there is no monitoring.
