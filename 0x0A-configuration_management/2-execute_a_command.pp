@@ -1,6 +1,3 @@
-# manifest file
-exec { 'killmenow':
-  command     => 'pkill killmenow',
-  path        => '/usr/bin/env',
-  refreshonly => true,
+# manifest file kill process
+exec { '/usr/bin/env pkill -9 killmenow':
 }
