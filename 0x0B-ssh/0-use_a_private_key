@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+server_address="34.2323.71.190"
+private_key_path="~/.ssh/school"
+user="ubuntu"
+
+ssh_command="ssh -i ${private_key_path} ${user}@${server_address}"
+
+${ssh_command}
