@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#ssh connect
 server_address="34.232.71.190"
 private_key_path="~/.ssh/school"
 user="ubuntu"
