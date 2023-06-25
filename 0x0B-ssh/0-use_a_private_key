@@ -3,4 +3,4 @@
 server_address="34.232.71.190"
 private_key_path="~/.ssh/school"
 user="ubuntu"
-ssh -i ${private_key_path} ${user}@${server_address}
+ssh ${user}@${server_address} -i ${private_key_path}
