@@ -3,5 +3,5 @@
     HashKnownHosts yes
     GSSAPIAuthentication yes
     GSSAPIDelegateCredentials no
-    IdentityFile ~/.shchool
+    IdentityFile ~/.ssh/school 
     PasswordAuthentication no 
