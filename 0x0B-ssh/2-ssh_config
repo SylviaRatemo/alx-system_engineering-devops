@@ -3,5 +3,5 @@
     HashKnownHosts yes
     GSSAPIAuthentication yes
     GSSAPIDelegateCredentials no
-    IdentityFile ~/.ssh/holberton
+    IdentityFile ~/.shchool
     PasswordAuthentication no 
