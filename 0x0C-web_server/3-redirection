@@ -9,25 +9,8 @@ sudo chmod -R 755 /var/www
 # Create index file
 echo "Index File" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
 
-SERVER_CONFIG=\
-"server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-        root /var/www/html;
-        index index.html index.htm index.nginx-debian.html;
-        server_name _;
-        location / {
-                try_files \$uri \$uri/ =404;
-        }
-        if (\$request_filename ~ redirect_me){
-                rewrite ^ https://google.com permanent;
-        }
-}
-"
-sudo bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+# Update server configuration
+sudo sed -i '/server_name _;/ a\ \tlocation \/redirect_me { return 301 https:\/\/www.google.com; }' /etc/nginx/sites-enabled/default
 
-if [ "$(pgrep -c nginx)" -le 0 ]; then
-        sudo service nginx start
-else
-        sudo service nginx restart
-fi
+# Restart Nginx
+sudo service nginx restart
