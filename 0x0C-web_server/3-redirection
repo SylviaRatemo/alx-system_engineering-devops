@@ -1,7 +1,33 @@
 #!/usr/bin/env bash
-# 301 redirection task
-sudo apt-get -y update
+# nginx server config
+sudo apt-get update
 sudo apt-get -y install nginx
-sudo sh -c 'echo "301 Moved Permanently" > /var/www/html/index.nginx-debian.html'
-sudo sed -i 's/# server_names_hash_bucket_size 64;/server_names_hash_bucket_size 64;\n\n\tlocation \/redirect_me {\n\t\treturn 301 https:\/\/www.google.com;\n\t}/' /etc/nginx/sites-enabled/default
-service nginx start
+sudo ufw allow 'Nginx HTTP'
+mkdir -p /var/www/html/
+sudo chmod -R 755 /var/www
+
+# Create index file
+echo "Index File" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
+
+SERVER_CONFIG=\
+"server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+        server_name _;
+        location / {
+                try_files \$uri \$uri/ =404;
+        }
+        if (\$request_filename ~ redirect_me){
+                rewrite ^ https://sketchfab.com/bluepeno/models permanent;
+        }
+}
+"
+sudo bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+
+if [ "$(pgrep -c nginx)" -le 0 ]; then
+        sudo service nginx start
+else
+        sudo service nginx restart
+fi
