@@ -4,6 +4,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 echo "404 test" | sudo tee /var/www/html/index.nginx-debian.html >/dev/null
 sudo sed -i "/server_name _;/ a\\\trewrite ^/redirect_me http://www.google.com permanent;" /etc/nginx/sites-available/default
-sudo sed -i "/redirect_me/ a\\\terror_page 404 /custom_404.html;" /etc/nginx/sites-available/default
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html >/dev/null
+s
+sudo sed -i "/redirect_me/ a\\\terror_page 404 /custom_404.html;" /etc/nginx/sites-available/default
 service nginx start
