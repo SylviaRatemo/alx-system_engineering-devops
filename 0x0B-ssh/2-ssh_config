@@ -1,8 +1,5 @@
-#Task 2
-Host *
-    PasswordAuthentication no
-    IdentityFile ~/.ssh/school
-    SendEnv LANG LC_*
-    HashKnownHosts yes
-    GSSAPIAuthentication yes
-    GSSAPIDelegateCredentials no
+Host 34.232.71.190 
+  User ubuntu
+  IdentityFile ~/.ssh/school
+  PreferredAuthentications publickey
+  PasswordAuthentication no
