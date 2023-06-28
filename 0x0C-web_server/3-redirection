@@ -2,30 +2,22 @@
 # nginx server config
 sudo apt-get update
 sudo apt-get -y install nginx
-sudo ufw allow 'Nginx HTTP'
-mkdir -p /var/www/html/
-sudo chmod -R 755 /var/www
 
-# Create index file
-echo "Index File" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
+# Create a custom Nginx configuration file
+cat <<EOF | sudo tee /etc/nginx/sites-available/redirect.conf
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name _;
+    
+    location /redirect_me {
+        return 301 http://www.google.com;
+    }
+}
+EOF
 
-# Update server configuration
-sudo sed -i '/server_name _;/ a\ \tlocation \/redirect_me { return 301 https:\/\/www.google.com; }' /etc/nginx/sites-enabled/default
-
-# redirect
-# Install netcat if not already installed
-if ! command -v nc >/dev/null 2>&1; then
-    sudo apt-get update
-    sudo apt-get -y install netcat
-fi
-
-# Define the redirect response
-redirect_response="HTTP/1.1 301 Moved Permanently\r\nLocation: http://www.example.com\r\n\r\n"
-
-# Start netcat in the background to listen on port 80 and serve the redirect response
-echo -ne "$redirect_response" | nc -l -p 80 -q 1
-
-echo "Redirect server is running on port 80"
+# Enable the custom configuration
+sudo ln -s /etc/nginx/sites-available/redirect.conf /etc/nginx/sites-enabled/
 
 
 # Restart Nginx
