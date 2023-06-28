@@ -1,7 +1,8 @@
-#task 2
+#Task 2
+Host *
+    PasswordAuthentication no
+    IdentityFile ~/.ssh/school
     SendEnv LANG LC_*
     HashKnownHosts yes
     GSSAPIAuthentication yes
     GSSAPIDelegateCredentials no
-    IdentityFile ~/.ssh/school 
-    PasswordAuthentication no 

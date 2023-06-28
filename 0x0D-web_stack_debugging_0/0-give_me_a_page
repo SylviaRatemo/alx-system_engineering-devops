@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Get Apache to run on Docker container &
+# return a page containing "Hello Holberton"
+sudo service apache2 start
