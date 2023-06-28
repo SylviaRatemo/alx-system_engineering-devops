@@ -3,5 +3,5 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo sh -c 'echo "301 Moved Permanently" > /var/www/html/index.nginx-debian.html'
-sudo sed -i "/server_name _;/ a\\\trewrite ^/redirect_me http://www.google.com permanent;" /etc/nginx/sites-available/default
+sudo sed -i 's/# server_names_hash_bucket_size 64;/server_names_hash_bucket_size 64;\n\n\tlocation \/redirect_me {\n\t\treturn 301 https:\/\/www.google.com;\n\t}/' /etc/nginx/sites-enabled/default
 service nginx start
