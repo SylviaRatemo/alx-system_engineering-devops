@@ -12,6 +12,22 @@ echo "Index File" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
 # Update server configuration
 sudo sed -i '/server_name _;/ a\ \tlocation \/redirect_me { return 301 https:\/\/www.google.com; }' /etc/nginx/sites-enabled/default
 
+# redirect
+# Install netcat if not already installed
+if ! command -v nc >/dev/null 2>&1; then
+    sudo apt-get update
+    sudo apt-get -y install netcat
+fi
+
+# Define the redirect response
+redirect_response="HTTP/1.1 301 Moved Permanently\r\nLocation: http://www.example.com\r\n\r\n"
+
+# Start netcat in the background to listen on port 80 and serve the redirect response
+echo -ne "$redirect_response" | nc -l -p 80 -q 1
+
+echo "Redirect server is running on port 80"
+
+
 # Restart Nginx
 if [ "$(pgrep -c nginx)" -le 0 ]; then
         sudo service nginx start
