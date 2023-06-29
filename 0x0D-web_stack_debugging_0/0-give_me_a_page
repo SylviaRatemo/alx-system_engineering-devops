@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Get Apache to run on Docker container &
 # return a page containing "Hello Holberton"
-echo "ServerName localhost" >> /etc/apache2.conf
+echo "Hello Holberton" >> /etc/apache2.conf
 sudo service apache2 start
