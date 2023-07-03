@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Remove carriage return from the script
+script=$(tr -d '\r' < "$0") || exit $?
+echo "$script"
