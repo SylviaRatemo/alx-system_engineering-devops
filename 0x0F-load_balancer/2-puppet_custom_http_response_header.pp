@@ -1,26 +1,17 @@
-# puppet hearder
-package { 'nginx':
+# Install nginx with puppet
+exec { '/usr/bin/env apt-get -y update' : }
+-> package { 'nginx':
   ensure => installed,
 }
-
-file { '/etc/nginx/sites-available/default':
-  ensure  => present,
-  content => "
-    server {
-      listen 80 default_server;
-      server_name _;
-
-      location / {
-        proxy_set_header X-Served-By ${::hostname};
-        # Other configuration directives...
-      }
-    }
-  ",
-  require => Package['nginx'],
-  notify  => Service['nginx'],
+-> file { '/var/www/html/index.html' :
+  content => 'Custom Header!',
 }
-
-service { 'nginx':
+-> file_line { 'add header' :
+  ensure => present,
+  path   => '/etc/nginx/sites-available/default',
+  line   => "\tadd_header X-Served-By ${hostname};",
+  after  => 'server_name _;',
+}
+-> service { 'nginx':
   ensure => running,
-  require => Package['nginx'],
 }
