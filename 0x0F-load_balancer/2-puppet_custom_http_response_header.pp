@@ -1,24 +1,26 @@
 # set header
-exec { 'apt-get-update':
-  command => '/usr/bin/apt-get -y update',
-}
-
 package { 'nginx':
   ensure => installed,
 }
 
-file { '/var/www/html/index.html':
-  content => 'custom HTTP Header with Puppet',
-}
+file { '/etc/nginx/sites-available/default':
+  ensure  => present,
+  content => "
+    server {
+      listen 80 default_server;
+      server_name _;
 
-augeas { 'add header':
-  context => '/files/etc/nginx/sites-available/default',
-  changes => [
-    "set server[.='server_name _;']/add_header X-Served-By ${hostname}",
-  ],
+      location / {
+        proxy_set_header X-Served-By ${::hostname};
+        # Other configuration directives...
+      }
+    }
+  ",
   require => Package['nginx'],
+  notify  => Service['nginx'],
 }
 
 service { 'nginx':
   ensure => running,
+  require => Package['nginx'],
 }
