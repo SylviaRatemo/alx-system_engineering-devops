@@ -1,4 +1,4 @@
-# set header
+# puppet hearder
 package { 'nginx':
   ensure => installed,
 }
