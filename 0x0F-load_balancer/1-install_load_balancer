@@ -8,13 +8,12 @@ frontend load_balancer
     
 backend foo
     balance roundrobin
-    server foo1 34.229.69.71 check
-    server foo2 18.204.11.123 check
+    server foo1 34.232.53.87 check
+    server foo2 100.25.10.249 check
 "
 sudo apt-get -y install software-properties-common
 sudo add-apt-repository -y ppa:vbernat/haproxy-2.0
 sudo apt-get -y update
 sudo apt-get -y install haproxy
 sudo sed -i -e '$aENABLED=1\n' /etc/default/haproxy
-sudo sed -i -e '$a\listen http-in\n\tbind :80\n\tbalance roundrobin\n\tserver 221354-web-02 18.204.11.123:80 check\n\tserver 202495-web-01 34.229.69.71:80 check\n' /etc/haproxy/haproxy.cfg
 sudo service haproxy start
