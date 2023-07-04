@@ -1,17 +1,24 @@
-# Installs nginx n stuff
-exec { '/usr/bin/env apt-get -y update' : }
--> package { 'nginx':
+# set header
+exec { 'apt-get-update':
+  command => '/usr/bin/apt-get -y update',
+}
+
+package { 'nginx':
   ensure => installed,
 }
--> file { '/var/www/html/index.html' :
-  content => 'custom HTTP Header with Puppet
+
+file { '/var/www/html/index.html':
+  content => 'custom HTTP Header with Puppet',
 }
--> file_line { 'add header' :
-  ensure => present,
-  path   => '/etc/nginx/sites-available/default',
-  line   => "\tadd_header X-Served-By ${hostname};",
-  after  => 'server_name _;',
+
+augeas { 'add header':
+  context => '/files/etc/nginx/sites-available/default',
+  changes => [
+    "set server[.='server_name _;']/add_header X-Served-By ${hostname}",
+  ],
+  require => Package['nginx'],
 }
--> service { 'nginx':
+
+service { 'nginx':
   ensure => running,
 }
