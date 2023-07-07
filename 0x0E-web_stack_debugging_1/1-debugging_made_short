@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # install nginx and set up index
-rm /etc/nginx/sites-enabled/default
-cp etc/nginx/sites-available/default etc/nginx/sites-enabled/default
-pkill -o nginx
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
+kill "$(pgrep 'nginx' | head -1)"
