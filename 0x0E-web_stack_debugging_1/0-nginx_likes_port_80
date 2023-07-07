@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 # install nginx and set up index
-sudo apt update
-sudo apt install nginx
-sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
-sudo service nginx restart
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx start
