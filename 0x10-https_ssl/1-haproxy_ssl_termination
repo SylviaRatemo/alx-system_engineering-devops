@@ -47,9 +47,10 @@ frontend lb-http
         default_backend www-backend
 
 frontend lb-https
-        bind *:443 ssl crt /etc/letsencrypt/live/www.sylviaratemo.tech/fullchain.pem
+        bind *:443 ssl crt /etc/haproxy/certs/combined.pem
         default_backend www-backend
 
 backend www-backend
-        redirect scheme https if !{ ssl_fc }
         balance roundrobin
+        server web-01 www.sylviaratemo.tech:80 check
+        server web-02 www.sylviaratemo.tech:80 check
