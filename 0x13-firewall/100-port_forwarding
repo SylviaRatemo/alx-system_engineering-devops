@@ -1,0 +1,4 @@
+sudo iptables --version
+sudo iptables -t nat -A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
+sudo iptables-save | sudo tee /etc/iptables/rules.v4
+sudo apt install iptables-persistent
