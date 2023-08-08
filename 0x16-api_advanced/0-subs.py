@@ -5,7 +5,7 @@ import requests
 
 def number_of_subscribers(subreddit):
     '''Gets number of reddit subscribers'''
-    headers = {'User-agent': 'Unix:0-subs:v1'}
+    headers = {'User-agent': 'Unix:0-sub:v1'}
     response = requests.get('http://reddit.com/r/{}/about.json'
                             .format(subreddit), headers=headers)
     if response.status_code != 200:
