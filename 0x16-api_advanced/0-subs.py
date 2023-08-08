@@ -3,7 +3,6 @@
 import requests
 
 
-
 def number_of_subscribers(subreddit):
     '''Gets number of reddit subscribers'''
     headers = {'User-agent': 'Unix:0-subs:v1'}
