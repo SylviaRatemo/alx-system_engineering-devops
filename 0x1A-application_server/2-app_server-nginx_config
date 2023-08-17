@@ -1,5 +1,6 @@
 server {
     listen 80;
+    listen localhost:80;
     server_name 34.232.53.87;  # Replace with your actual domain or IP
 
     location /airbnb-onepage/ {
